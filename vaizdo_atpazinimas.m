@@ -3,8 +3,8 @@ clear all
 clc
 %% raidþiø pavyzdþiø nuskaitymas ir poþymiø skaièiavimas
 %% read the image with hand-written characters
-pavadinimas = 'train_data.png';
-pozymiai_tinklo_mokymui = pozymiai_raidems_atpazinti(pavadinimas, 8);
+pavadinimas = 'Letters.jpg';
+pozymiai_tinklo_mokymui = pozymiai_raidems_atpazinti(pavadinimas, 3);
 %% Atpaþintuvo kûrimas
 %% Development of character recognizer
 % poþymiai ið celiø masyvo perkeliami á matricà
@@ -15,7 +15,7 @@ P = cell2mat(pozymiai_tinklo_mokymui);
 T = [eye(11), eye(11), eye(11), eye(11), eye(11), eye(11), eye(11), eye(11)];
 % sukuriamas SBF tinklas duotiems P ir T sàryðiams
 % create an RBF network for classification with 13 neurons, and sigma = 1
-tinklas = newrb(P,T,0,1,13);
+tinklas = newrb(P,T,0,1,10);
 
 %% Tinklo patikra | Test of the network (recognizer)
 % skaièiuojamas tinklo iðëjimas neþinomiems poþymiams
@@ -55,18 +55,26 @@ for k = 1:raidziu_sk
         case 9
             atsakymas = [atsakymas, 'I'];
         case 10
-            atsakymas = [atsakymas, 'K'];
-        case 11
             atsakymas = [atsakymas, 'J'];
+        case 11
+            atsakymas = [atsakymas, 'K'];
+        case 12
+            atsakymas = [atsakymas, 'L'];
+        case 13
+            atsakymas = [atsakymas, 'M'];
+        case 14
+            atsakymas = [atsakymas, 'N'];
+        case 15
+            atsakymas = [atsakymas, 'O'];
     end
 end
 % pateikime rezultatà komandiniame lange
 % show the result in command window
 disp(atsakymas)
-% % figure(7), text(0.1,0.5,atsakymas,'FontSize',38)
+% figure(7), text(0.1,0.5,atsakymas,'FontSize',38)
 %% þodþio "KADA" poþymiø iðskyrimas 
 %% Extract features of the test image
-pavadinimas = 'test_kada.png';
+pavadinimas = 'word.jpg';
 pozymiai_patikrai = pozymiai_raidems_atpazinti(pavadinimas, 1);
 
 %% Raidþiø atpaþinimas
@@ -107,9 +115,17 @@ for k = 1:raidziu_sk
         case 9
             atsakymas = [atsakymas, 'I'];
         case 10
-            atsakymas = [atsakymas, 'K'];
-        case 11
             atsakymas = [atsakymas, 'J'];
+        case 11
+            atsakymas = [atsakymas, 'K'];
+        case 12
+            atsakymas = [atsakymas, 'L'];
+        case 13
+            atsakymas = [atsakymas, 'M'];
+        case 14
+            atsakymas = [atsakymas, 'N'];
+        case 15
+            atsakymas = [atsakymas, 'O'];
     end
 end
 % pateikime rezultatà komandiniame lange
@@ -117,7 +133,7 @@ end
 figure(8), text(0.1,0.5,atsakymas,'FontSize',38), axis off
 %% þodþio "FIKCIJA" poþymiø iðskyrimas 
 %% extract features for next/another test image
-pavadinimas = 'test_fikcija.png';
+pavadinimas = 'word.jpg';
 pozymiai_patikrai = pozymiai_raidems_atpazinti(pavadinimas, 1);
 
 %% Raidþiø atpaþinimas
@@ -153,9 +169,17 @@ for k = 1:raidziu_sk
         case 9
             atsakymas = [atsakymas, 'I'];
         case 10
-            atsakymas = [atsakymas, 'K'];
-        case 11
             atsakymas = [atsakymas, 'J'];
+        case 11
+            atsakymas = [atsakymas, 'K'];
+        case 12
+            atsakymas = [atsakymas, 'L'];
+        case 13
+            atsakymas = [atsakymas, 'M'];
+        case 14
+            atsakymas = [atsakymas, 'N'];
+        case 15
+            atsakymas = [atsakymas, 'O'];
     end
 end
 % pateikime rezultatà komandiniame lange
